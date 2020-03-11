@@ -1,0 +1,106 @@
+<!doctype html>
+
+<!--ID's using the term "ab" mean "address book"-->
+
+<html lang = "en">
+  <head>
+    <!-- CSS and meta information -->
+    <meta charset = "UTF-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge"/>
+
+    <!-- FontAwesome support -->
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+    <!-- Bootstrap support -->
+    <link href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel = "stylesheet" integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin = "anonymous">
+    <link href = "https://fonts.googleapis.com/css?family=Sigmar+One|Zhi+Mang+Xing&display=swap" rel = "stylesheet">
+    <!-- Link to my CSS -->
+    <link rel = "stylesheet" type = "text/css" href = "style.css"/>
+
+    <!-- Title of page -->
+    <title>Address Book</title>
+
+
+  </head>
+  <body>
+    <h3 class = "text-center" id = "title">Address Book</h3>
+    <div class = "container">
+      <div class = "row" id = "ab">
+        <div class = "col-sm-6" id = "ab-left-column">
+          <div class = "bg-light border border-primary rounded" id = "ab-contactbox">
+            <h3 class = "text-center">Add New Contact</h3>
+            <form id = "ab-contactform" name = "new-contact-form" method = "post">
+              <!--First & last name input box-->
+              <div class = "row mb-1 ml-1 mr-2">
+                  <label class = "col-6" for = "new-contact-fullname">First & Last Name:</label>
+                  <input class = "col-6" name = "new-contact-fullname" type = "text" id = "ab-newcontact-fullname" placeholder = "John Smith" pattern = "^\S+\s+\S+$">
+              </div>
+              <!--Mailing address input box-->
+              <div class = "row mb-1 ml-1 mr-2">
+                  <label class = "col-6" for = "new-contact-address">Mailing Address:</label>
+                  <input class = "col-6" name = "new-contact-address" type = "text" id = "ab-newcontact-address" placeholder = "2420 Nicolet Dr, Green Bay, WI 54311" pattern = "^[^,]+,\s*[^,]+,\s*[A-Z]{2}\s+\d{5}$">
+              </div>
+              <!--Phone number input box-->
+              <div class = "row mb-1 ml-1 mr-2">
+                  <label class = "col-6" for = "new-contact-phone">Phone Number:</label>
+                  <input class = "col-6" name = "new-contact-phone" type = "tel" id = "ab-newcontact-phone" placeholder = "000-000-0000" pattern = "^[2-9]\d{2}-\d{3}-\d{4}$">
+              </div>
+              <!--Email input box-->
+              <div class = "row mb-1 ml-1 mr-2">
+                  <label class = "col-6" for = "new-contact-email">E-mail Address:</label>
+                  <input class = "col-6" name = "new-contact-email" type = "email" id = "ab-newcontact-email" placeholder = "johnsmith@mail.com">
+              </div>
+              <!--Birthday input box-->
+              <div class = "row mb-2 ml-1 mr-2">
+                  <label class = "col-6" for = "new-contact-birthdate">Birthday:</label>
+                  <input class = "col-6" name = "new-contact-birthdate" type = "text" id = "ab-newcontact-birthday" placeholder = "01/18/2018" pattern = "^[0-1]\d\/[0-3]\d\/[1-2]\d{3}$">
+              </div>
+              <!--Add photo button-->
+              <div class = "row ml-1 mr-2">
+                  <div class = "col-12 pr-0">
+                      <label class = "btn btn-info btn-block" id = "ab-newcontact-photo-label" tabindex = "1" for = "new-contact-photo">
+                          <i class = "fas fa-smile"></i>
+                          Photo
+                      </label>
+                      <input type = "file" id = "ab-newcontact-photo" name = "new-contact-photos[]" accept = "image/*"/>
+                  </div>
+              </div>
+              <!--Add contact button-->
+              <img id = "ab-displayimage" src = "pictures\1x1.png" alt = "thumbnail">
+              <p class = "text-center mt-4">
+                  <a href = "#" role = "button" class = "btn btn-primary btn-lg" id = "ab-newcontact-button">
+                      <i class = "fas fa-user-circle"></i>
+                      Add This Contact
+                  </a>
+              </p>
+            </form>
+          </div>
+        </div>
+        <div class = "col-sm-6" id = "ab-right-column">
+          <h3 class = "text-center">Address Book Operations</h3>
+          <div class = "btn-group text-center" role = "group" aria-label = "Address Book Operations">
+              <a class = "btn btn-primary" href = "#" role = "button" id = "ab-displaybutton">
+                  <i class = "fas fa-desktop"></i>
+                  Display
+              </a>
+              <a class = "btn btn-danger" href = "#" role = "button" id = "ab-deletebutton">
+                  <i class = "fas fa-minus-square"></i>
+                  Delete
+              </a>
+              <a class = "btn btn-success" href = "#" role = "button" id = "ab-downloadbutton">
+                  <i class = "fas fa-download"></i>
+                  Download
+              </a>
+              <label class = "btn btn-info" for = "upload-json" id = "ab-uploadbutton">
+                  <i class = "fas fa-upload"></i>
+                  Upload
+              </label>
+          </div>
+          <input type = "file" id = "ab-uploadjson"/>
+          <div id = "ab-content"></div>
+          <!-- Link to my JS-->
+          <script src = "script.js"></script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
